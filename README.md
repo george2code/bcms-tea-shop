@@ -99,13 +99,20 @@ Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
 
 ## Setup project
 
-npm i @nestjs/config class-validator class-transformer @nestjs/jwt @nestjs/passport passport passport-jwt passport-google-oauth20 passport-yandex cookie-parser argon2 dayjs fs-extra @nestjs/serve-static app-root-path @prisma/client @a2seven/yoo-checkout 
+```bash
+npm i @nestjs/config class-validator class-transformer @nestjs/jwt @nestjs/passport passport passport-jwt passport-google-oauth20 passport-yandex cookie-parser argon2 dayjs fs-extra @nestjs/serve-static app-root-path @prisma/client @a2seven/yoo-checkout
+```
 
-# libraries typisation
+## libraries typisation
+
+```bash
 npm i -D @types/multer @types/fs-extra @types/passport-jwt @types/passport-google-oauth20 @types/cookie-parser
+```
 
-# Prisma
+## Prisma
 prisma init
 
 prisma db push
 prisma generate
+
+https://www.passportjs.org/packages/ - to get auth strategy you need (telegram, google etc)
