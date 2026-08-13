@@ -116,3 +116,8 @@ prisma db push
 prisma generate
 
 https://www.passportjs.org/packages/ - to get auth strategy you need (telegram, google etc)
+
+
+Generate entities:
+nest g res product --no-spec
+... and so on
