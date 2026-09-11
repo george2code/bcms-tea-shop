@@ -2,7 +2,7 @@ import { Controller, Get, Param } from '@nestjs/common';
 import { StatisticService } from './statistic.service';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 
-@Controller('statistic')
+@Controller('statistics')
 export class StatisticController {
   constructor(private readonly statisticService: StatisticService) {}
 

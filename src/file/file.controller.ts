@@ -1,6 +1,14 @@
-import { Controller, HttpCode, Post, Query, UploadedFiles, UseInterceptors } from '@nestjs/common';
-import { FileService } from './file.service';
+import {
+  Controller,
+  HttpCode,
+  Post,
+  Query,
+  UploadedFiles,
+  UseInterceptors,
+} from '@nestjs/common';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import { Auth } from 'src/auth/decorators/auth.decorator';
+import { FileService } from './file.service';
 
 @Controller('files')
 export class FileController {
@@ -8,15 +16,12 @@ export class FileController {
 
   @HttpCode(200)
   @Post()
-  @UseInterceptors(FileInterceptor('files'))
+  @UseInterceptors(FilesInterceptor('files'))
   @Auth()
   async uploadFiles(
-    @UploadedFiles() files: Express.Multer.File[], 
-    @Query('folder') folder?: string
+    @UploadedFiles() files: Express.Multer.File[],
+    @Query('folder') folder?: string,
   ) {
     return this.fileService.saveFiles(files, folder);
   }
-}
-function FileInterceptor(arg0: string): any {
-  throw new Error('Function not implemented.');
 }

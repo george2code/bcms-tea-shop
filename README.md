@@ -121,3 +121,6 @@ https://www.passportjs.org/packages/ - to get auth strategy you need (telegram, 
 Generate entities:
 nest g res product --no-spec
 ... and so on
+
+
+npm run prisma:seed
