@@ -27,16 +27,23 @@ export class ProductService {
     private async searchTermFilter(searchTerm: string) {
         return this.prisma.product.findMany({
             where: {
-                OR: [{
-                    title: {
-                        contains: searchTerm,
-                        mode: 'insensitive',
+                OR: [
+                    {
+                        title: {
+                            contains: searchTerm,
+                            mode: 'insensitive',
+                        },
                     },
-                    description: {
-                        contains: searchTerm,
-                        mode: 'insensitive',
-                    },  
-                }]
+                    {
+                        description: {
+                            contains: searchTerm,
+                            mode: 'insensitive',
+                        },
+                    },
+                ],
+            },
+            include: {
+                category: true
             }
         })
     }
@@ -61,7 +68,11 @@ export class ProductService {
             include: {
                 category: true,
                 color: true,
-                reviews: true,
+                reviews: {
+                    include: {
+                        user: true
+                    }
+                },
             },
         });
 
